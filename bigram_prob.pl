@@ -53,7 +53,7 @@ $sentence =~ tr/A-ZÅÀÂÄÆÇÉÈÊËÎÏÔÖŒÙÛÜŸ/a-zåàâäæçéèê�
 $alpha = 0.4;
 
 print "Bigrams\n";
-print "wi | wi+1 | Ci,i+1 | C(i) | P(wi+1&#124;wi)\n";
+print "wi | wi+1 | Ci,i+1 | C(i) | P(wi+1,wi)\n";
 print "--- | --- | ---    | ---  | ---\n";
 for ($j = 1; $j <= $#sentence_words; $j++) {
     $wi = $sentence_words[$j-1] ;
@@ -68,7 +68,7 @@ for ($j = 1; $j <= $#sentence_words; $j++) {
     print $wi . " | " . $wi1 . " | " . $Cbigram . " | " . $Ci . " | " . $Pi;
     print "\n";
 
-    $probabilities[$j-1] = $Pi
+    $proabilities[$j-1] = $Pi
 }
 
 $prob = 1;
@@ -83,6 +83,6 @@ for ($i = 0; $i < $#probabilities; $i++) {
 $entropy = log($entropy) / log(2);
 $entropy = -(1/$#probabilities)*$entropy;
 
-print "Probability Unigrams: " . $prob . "\n";
-print "Entropy Rate: " . $entropy . "\n";
-print "Perplexity: " . 2**$entropy . "\n";
+print "* Probability Unigrams: " . $prob . "\n";
+print "* Entropy Rate: " . $entropy . "\n";
+print "* Perplexity: " . 2**$entropy . "\n";
