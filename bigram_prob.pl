@@ -69,7 +69,7 @@ for ($j = 1; $j <= $#sentence_words; $j++) {
     print $wi . " | " . $wi1 . " | " . $Cbigram . " | " . $Ci . " | " . $Pi;
     print "\n";
 
-    $proabilities[$j-1] = $Pi
+    $probabilities[$j-1] = $Pi;
 }
 
 $prob = 1;
