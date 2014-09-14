@@ -52,7 +52,7 @@ $sentence =~ tr/A-ZÅÀÂÄÆÇÉÈÊËÎÏÔÖŒÙÛÜŸ/a-zåàâäæçéèê�
 @probabilities = ();
 $alpha = 0.4;
 
-print "Bigrams\n";
+print "##### Bigrams\n";
 print "wi | wi+1 | Ci,i+1 | C(i) | P(wi+1,wi)\n";
 print "--- | --- | ---    | ---  | ---\n";
 for ($j = 1; $j <= $#sentence_words; $j++) {
@@ -62,6 +62,7 @@ for ($j = 1; $j <= $#sentence_words; $j++) {
     $Ci = $frequency{$wi};
     if ($Cbigram == 0) {
         $Pi = $alpha *  $Ci / $#words;
+        $Cbigram = "backoff";
     } else {
         $Pi = $Cbigram / $Ci;
     }

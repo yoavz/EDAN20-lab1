@@ -42,20 +42,18 @@ $sentence =~ tr/A-ZÅÀÂÄÆÇÉÈÊËÎÏÔÖŒÙÛÜŸ/a-zåàâäæçéèê�
 @sentence_words = split(/\s+/, $sentence);
 @probabilities = ();
 
-print "Unigrams\n";
-print "===========================================\n";
-print "wi\tc(wi)\t#words\tP(wi)\n";
-print "===========================================\n";
+print "##### Unigrams\n";
+print "wi | c(wi) | #words | P(wi)\n";
+print "--- | --- | --- | ---\n";
 for ($j = 0; $j <= $#sentence_words; $j++) {
     $wi = $sentence_words[$j] ;
     $c_wi = $frequency{$sentence_words[$j]};
     $P_i = $c_wi / $#words;
-    print $wi . "\t" . $c_wi . "\t" . $#words . "\t" . $P_i;
+    print $wi . " | " . $c_wi . " | " . $#words . " | " . $P_i;
     print "\n";
 
     $probabilities[$j] = $P_i
 }
-print "===========================================\n";
 
 $prob = 1;
 $H_sum = 0;
@@ -71,7 +69,6 @@ for ($i = 0; $i < $#probabilities; $i++) {
 $entropy = log($entropy) / log(2);
 $entropy = -(1/$#probabilities)*$entropy;
 
-print "Probability Unigrams: " . $prob . "\n";
-print "Entropy Rate: " . $entropy . "\n";
-print "Perplexity: " . 2**$entropy . "\n";
-
+print "* Probability Unigrams: " . $prob . "\n";
+print "* Entropy Rate: " . $entropy . "\n";
+print "* Perplexity: " . 2**$entropy . "\n";
