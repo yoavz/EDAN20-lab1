@@ -53,9 +53,8 @@ $sentence =~ tr/A-ZÅÀÂÄÆÇÉÈÊËÎÏÔÖŒÙÛÜŸ/a-zåàâäæçéèê�
 $alpha = 0.4;
 
 print "Bigrams\n";
-print "===========================================\n";
-print "wi\twi+1\tCi,i+1\tC(i)\tP(wi+1|wi)\n";
-print "===========================================\n";
+print "wi | wi+1 | Ci,i+1 | C(i) | P(wi+1|wi)\n";
+print "--- | --- | ---    | ---  | ---\n";
 for ($j = 1; $j <= $#sentence_words; $j++) {
     $wi = $sentence_words[$j-1] ;
     $wi1 = $sentence_words[$j] ;
@@ -66,12 +65,11 @@ for ($j = 1; $j <= $#sentence_words; $j++) {
     } else {
         $Pi = $Cbigram / $Ci;
     }
-    print $wi . "\t" . $wi1 . "\t" . $Cbigram . "\t" . $Ci . "\t" . $Pi;
+    print $wi . " | " . $wi1 . " | " . $Cbigram . " | " . $Ci . " | " . $Pi;
     print "\n";
 
     $probabilities[$j-1] = $Pi
 }
-print "===========================================\n";
 
 $prob = 1;
 for ($i = 0; $i <= $#probabilities; $i++) {

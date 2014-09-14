@@ -68,38 +68,17 @@ Using word counting principles, two programs were written to compute to the prob
 
 _Låt dem äta tårtan !_
 
-```
-Unigrams
-===========================================
-wi  c(wi)   #words  P(wi)
-===========================================
-<s> 55624   1072794 0.0518496561315593
-låt 191 1072794 0.000178039772780236
-dem 3401    1072794 0.00317022652997686
-äta 154 1072794 0.00014355039271286
-tårtan  1   1072794 9.32145407226364e-07
-</s>    55624   1072794 0.0518496561315593
-===========================================
-Probability Unigrams: 2.03042586619628e-19
-Entropy Rate: 11.5650659361663
-Perplexity: 3029.92409381538
-```
-
-```
-Bigrams
-===========================================
-wi  wi+1    Ci,i+1  C(i)    P(wi+1|wi)
-===========================================
-<s> låt 90  55624   0.00161800661584927
-låt dem 7   191 0.0366492146596859
-dem äta     3401    0.00126809061199075
-äta tårtan      154 5.7420157085144e-05
-tårtan  </s>        1   3.72858162890546e-07
-===========================================
+## Bigrams
+wi | wi+1 | Ci,i+1 | C(i) | P(wi+1|wi)
+--- | --- | ---    | ---  | ---
+<s> | låt | 90 | 55624 | 0.00161800661584927
+låt | dem | 7 | 191 | 0.0366492146596859
+dem | äta |  | 3401 | 0.00126809061199075
+äta | tårtan |  | 154 | 5.7420157085144e-05
+tårtan | </s> |  | 1 | 3.72858162890546e-07
 Probability Unigrams: 1.60991625316035e-18
 Entropy Rate: 9.43821258199935
 Perplexity: 693.721401215826
-```
 
 
 Notice that the backoff technique is applied for the bigram "hette nils" which is not found anywhere in the corpus. Also notice that the bigram probability is much heigher than the unigram probability for the same sentence and corpus. 
