@@ -68,8 +68,8 @@ Using word counting principles, two programs were written to compute to the prob
 
 _Låt dem äta tårtan !_
 
-## Bigrams
-wi | wi+1 | Ci,i+1 | C(i) | P(wi+1|wi)
+# Bigrams
+wi | wi+1 | Ci,i+1 | C(i) | P(wi+1&#124wi)
 --- | --- | ---    | ---  | ---
 <s> | låt | 90 | 55624 | 0.00161800661584927
 låt | dem | 7 | 191 | 0.0366492146596859

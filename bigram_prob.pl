@@ -53,7 +53,7 @@ $sentence =~ tr/A-ZÅÀÂÄÆÇÉÈÊËÎÏÔÖŒÙÛÜŸ/a-zåàâäæçéèê�
 $alpha = 0.4;
 
 print "Bigrams\n";
-print "wi | wi+1 | Ci,i+1 | C(i) | P(wi+1|wi)\n";
+print "wi | wi+1 | Ci,i+1 | C(i) | P(wi+1&#124;wi)\n";
 print "--- | --- | ---    | ---  | ---\n";
 for ($j = 1; $j <= $#sentence_words; $j++) {
     $wi = $sentence_words[$j-1] ;
