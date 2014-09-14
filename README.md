@@ -1,5 +1,6 @@
 Lab 1: Language Models
 ======================
+Report by ***Yoav Zimmerman*** for EDAN20 Fall 2014
 
 Collecting a Corpus
 -------------------
@@ -63,51 +64,42 @@ As an interesting exercise, we can calculate the possible number of 4-grams by t
 Computing the likelihood of a sentence
 --------------------------------------
 
-Using word counting principles, a program was written to compute the unigram probability of a given sentence and tested on several. The following is the output for the sentence "Det var en gång en katt som hette Nils" using Selma.txt as our corpus:
+Using word counting principles, two programs were written to compute to the probability of a given sentence using a given corpus. The first program uses unigram frequency and the second uses bigram frequency together with the technique of backoff. The following are the program outputs for several sentences, each using the Selma.txt corpus.
 
-```bash
-$ perl unigram_prob.pl Selma.txt sentence.txt
+_Låt dem äta tårtan !_
+
+```
 Unigrams
 ===========================================
-wi      c(wi)   #words  P(wi)
+wi  c(wi)   #words  P(wi)
 ===========================================
-det     22087   1072794 0.0205882956094087
-var     12850   1072794 0.0119780684828588
-en      13898   1072794 0.012954956869632
-gång    1332    1072794 0.00124161768242552
-en      13898   1072794 0.012954956869632
-katt    15      1072794 1.39821811083955e-05
-som     16788   1072794 0.0156488570965162
-hette   107     1072794 9.97395585732209e-05
-nils    84      1072794 7.83002142070146e-05
+<s> 55624   1072794 0.0518496561315593
+låt 191 1072794 0.000178039772780236
+dem 3401    1072794 0.00317022652997686
+äta 154 1072794 0.00014355039271286
+tårtan  1   1072794 9.32145407226364e-07
 </s>    55624   1072794 0.0518496561315593
 ===========================================
-Probability Unigrams: 4.55303343054364e-27
-Entropy Rate: 9.24841208232302
-Perplexity: 608.204247851174  
+Probability Unigrams: 2.03042586619628e-19
+Entropy Rate: 11.5650659361663
+Perplexity: 3029.92409381538
 ```
 
-A similar program was written to compute the bigram probability of a given sentence using the backoff technique to deal with sparse data. The following is the output for the sentence "Det var en gång en katt som hette Nils" using Selma.txt as our corpus:
-
-```bash
-$ perl bigram_prob.pl Selma.txt sentence.txt
+```
 Bigrams
 ===========================================
-wi      wi+1    Ci,i+1  C(i)    P(wi+1|wi)
+wi  wi+1    Ci,i+1  C(i)    P(wi+1|wi)
 ===========================================
-det     var     4023    22087   0.182143342237515
-var     en      753     12850   0.0585992217898833
-en      gång    695     13898   0.0500071952798964
-gång    en      23      1332    0.0172672672672673
-en      katt    5       13898   0.000359763994819398
-katt    som     2       15      0.133333333333333
-som     hette   50      16788   0.00297831784608053
-hette   nils            107     3.98958234292884e-05
-nils    </s>    1       84      0.0119047619047619
+<s> låt 90  55624   0.00161800661584927
+låt dem 7   191 0.0366492146596859
+dem äta     3401    0.00126809061199075
+äta tårtan      154 5.7420157085144e-05
+tårtan  </s>        1   3.72858162890546e-07
 ===========================================
-Probability Unigrams: 6.25369768461475e-19
-Entropy Rate: 6.75995086271198
-Perplexity: 108.379708574658
+Probability Unigrams: 1.60991625316035e-18
+Entropy Rate: 9.43821258199935
+Perplexity: 693.721401215826
 ```
+
 
 Notice that the backoff technique is applied for the bigram "hette nils" which is not found anywhere in the corpus. Also notice that the bigram probability is much heigher than the unigram probability for the same sentence and corpus. 
