@@ -66,7 +66,7 @@ Computing the likelihood of a sentence
 
 Using word counting principles, two programs were written to compute to the probability of a given sentence using a given corpus. The first program uses unigram frequency and the second uses bigram frequency together with the technique of backoff. The following are the program outputs for several sentences, each using the Selma.txt corpus.
 
-1. _Låt dem äta tårtan_
+###_Låt dem äta tårtan_
 
 ##### Unigrams
 wi | c(wi) | #words | P(wi)
@@ -93,7 +93,7 @@ tårtan | `</s>` | backoff | 1 | 3.72858162890546e-07
 * Entropy Rate: 9.43821258199935
 * Perplexity: 693.721401215826
 
-2. _Den svarta räven hoppade över staketet_
+###_Den svarta räven hoppade över staketet_
 
 ##### Unigrams
 wi | c(wi) | #words | P(wi)
@@ -124,7 +124,7 @@ staketet | `</s>` | 1 | 2 | 0.5
 * Entropy Rate: 7.7947936050972
 * Perplexity: 222.058133547733
 
-3. _Detta är en mycket enkel mening_
+###_Detta är en mycket enkel mening_
 
 ##### Unigrams
 wi | c(wi) | #words | P(wi)
@@ -154,7 +154,7 @@ mening | `</s>` | 38 | 172 | 0.22093023255814
 * Entropy Rate: 8.93737836589534
 * Perplexity: 490.251544702405
 
-4. _Mannen gick till affären_
+###_Mannen gick till affären_
 
 ##### Unigrams
 wi | c(wi) | #words | P(wi)
@@ -180,7 +180,7 @@ affären | `</s>` | 1 | 4 | 0.25
 * Entropy Rate: 7.57171209216275
 * Perplexity: 190.24465251911
 
-5. _Kvinnan talade med sin dotter_
+###_Kvinnan talade med sin dotter_
 
 ##### Unigrams
 wi | c(wi) | #words | P(wi)
